@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
 
   cities: any[] = []
+  filteredCities: any[] = []
   noSearchResults: boolean = false
 
   constructor(private homeService: HomeService) {
@@ -20,28 +21,28 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.homeService.getCities().subscribe(res => {
+      this.cities = res.data
+    })
   }
 
   test(event: any) {
 
-    console.log(event.toLowerCase())
+    this.filteredCities = this.cities
 
-    this.homeService.getCities().subscribe(res => {
-      this.cities = res.data
+    if (event === "") {
+      this.filteredCities = []
       this.noSearchResults = false
-
-
-      if (event === "") {
-        this.cities = []
+    }
+    else {
+      this.filteredCities = this.filteredCities.filter(city => city.name.toLowerCase().includes(event.toLowerCase()))
+      this.noSearchResults = false
+      if (this.filteredCities.length === 0) {
+        console.warn("No search results");
+        this.noSearchResults = true
       }
-      else {
-        this.cities = this.cities.filter(city => city.name.toLowerCase().includes(event.toLowerCase()))
-        if (this.cities.length === 0) {
-          console.warn("No search results");
-          this.noSearchResults = true
-        }
-      }
-    })
+    }
+
 
   }
 
