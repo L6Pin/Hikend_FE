@@ -1,0 +1,4 @@
+<div class="home">
+    <app-home-search [cities]="cities"  (searchInputUpdate)="test($event)"></app-home-search>
+    <h2 *ngIf="noSearchResults">No search results</h2>
+</div>

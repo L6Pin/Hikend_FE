@@ -1,0 +1,17 @@
+.home{
+    height: calc(100vh - 80px);
+    background-color: yellow;
+    background: url("https://i.imgur.com/GB1Q32d.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 250% 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2{
+        color: red;
+        margin-top: 16px;
+    }
+}
