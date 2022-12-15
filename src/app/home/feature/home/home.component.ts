@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   test(event: any) {
-
+    
     this.filteredCities = this.cities
 
     if (event === "") {
@@ -42,8 +42,5 @@ export class HomeComponent implements OnInit {
         this.noSearchResults = true
       }
     }
-
-
   }
-
 }

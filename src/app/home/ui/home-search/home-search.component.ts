@@ -9,6 +9,7 @@ export class HomeSearchComponent  {
 
   @Output() searchInputUpdate = new EventEmitter<string>()
   @Input() cities: any = []
+  @Input() noSearchResults:boolean = false
 
   searchInput: string = ""
 
@@ -17,6 +18,7 @@ export class HomeSearchComponent  {
   }
 
   searchInputChanged(){
+    // console.log(this.cities)
     this.searchInputUpdate.emit(this.searchInput)
   }
 }
