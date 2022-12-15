@@ -1,0 +1,13 @@
+<div class="mountain-list-container">
+    <ng-container *ngFor="let mountain of cityMountins">
+        <a [routerLink]="'/mountain' + mountain.id">
+            <div class="mountain-list-item">
+                <p>{{ mountain.name }}</p>
+                <p>{{mountain.distance}} km away</p>
+                <div class="mountain-list-image-darken-overlay"></div>
+                <img [src]="mountain.photo_url" alt="">
+            </div>
+        </a>
+    </ng-container>
+
+</div>
