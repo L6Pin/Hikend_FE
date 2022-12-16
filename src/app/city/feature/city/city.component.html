@@ -5,6 +5,6 @@
     <img [src]="city.photo_url" alt="">
 </div>
 <div class="city">
-    <app-data-transform></app-data-transform>
-    <app-mountain-list-item [cityMountins]="city.mountains"></app-mountain-list-item>
+    <app-data-transform (selectedSortValueUpdated)="sortMountains($event)"></app-data-transform>
+    <app-mountain-list-item [cityMountins]="cityMountains"></app-mountain-list-item>
 </div>

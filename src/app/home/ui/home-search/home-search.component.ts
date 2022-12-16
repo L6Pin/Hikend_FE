@@ -18,7 +18,6 @@ export class HomeSearchComponent  {
   }
 
   searchInputChanged(){
-    // console.log(this.cities)
     this.searchInputUpdate.emit(this.searchInput)
   }
 }

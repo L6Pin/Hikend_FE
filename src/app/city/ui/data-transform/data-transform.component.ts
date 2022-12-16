@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-data-transform',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class DataTransformComponent {
 
+  @Output() selectedSortValueUpdated = new EventEmitter<number>()
+  selectedSortValue: number = 1
+
+
+  selectedSortValueChanged() {
+    console.log(this.selectedSortValue)
+    this.selectedSortValueUpdated.emit(this.selectedSortValue)
+  }
 }
