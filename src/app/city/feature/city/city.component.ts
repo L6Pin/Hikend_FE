@@ -13,13 +13,18 @@ export class CityComponent implements OnInit {
 
   city: any = {}
   cityMountains: any[] = []
+  cityMountainsFiltered: any[] = []
+  noSearchResults: boolean = false;
+  selectedSortValue: number = 1;
 
   ngOnInit(): void {
     this.cityService.getSingleCity(this.route.snapshot.params['id']).subscribe(response => {
       this.city = response.data
-      this.cityMountains = response.data.mountains
+      this.cityMountains = response.data.mountains;
+      this.cityMountainsFiltered = response.data.mountains
       this.sortMountainsByAlphabeticalOrder()
     })
+
   }
 
   sortMountains(event: any) {
@@ -27,11 +32,12 @@ export class CityComponent implements OnInit {
     if (event === "2") this.sortMountainsByReverseAlphabeticalOrder();
     if (event === "3") this.sortMountainsByClosest();
     if (event === "4") this.sortMountainsByFurthest();
+    this.selectedSortValue = event
+    console.log("sortMountains fired")
   }
 
   sortMountainsByAlphabeticalOrder() {
-
-    this.cityMountains = this.cityMountains.sort((a, b) => {
+    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
       const mountainNameA = a.name.toLowerCase();
       const mountainNameB = b.name.toLowerCase();
       if (mountainNameA > mountainNameB) {
@@ -42,7 +48,7 @@ export class CityComponent implements OnInit {
   }
 
   sortMountainsByReverseAlphabeticalOrder() {
-    this.cityMountains = this.cityMountains.sort((a, b) => {
+    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
       const mountainNameA = a.name.toLowerCase();
       const mountainNameB = b.name.toLowerCase();
       if (mountainNameA < mountainNameB) {
@@ -53,7 +59,7 @@ export class CityComponent implements OnInit {
   }
 
   sortMountainsByClosest() {
-    this.cityMountains = this.cityMountains.sort((a, b) => {
+    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
       const mountainDistanceA = a.distance
       const mountainDistanceB = b.distance
       if (mountainDistanceA > mountainDistanceB) {
@@ -64,7 +70,7 @@ export class CityComponent implements OnInit {
   }
 
   sortMountainsByFurthest() {
-    this.cityMountains = this.cityMountains.sort((a, b) => {
+    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
       const mountainDistanceA = a.distance
       const mountainDistanceB = b.distance
       if (mountainDistanceA < mountainDistanceB) {
@@ -73,5 +79,27 @@ export class CityComponent implements OnInit {
       else return -1
     })
   }
+
+  filterMountains(event: any) {
+    this.cityMountainsFiltered = this.cityMountains
+
+
+    if (event === "") {
+      this.cityMountainsFiltered = this.cityMountains
+      this.noSearchResults = false
+    }
+    else {
+      this.cityMountainsFiltered = this.cityMountainsFiltered.filter(mountain => mountain.name.toLowerCase().includes(event.toLowerCase()))
+      this.noSearchResults = false
+      if (this.cityMountainsFiltered.length === 0) {
+        console.warn("No search results");
+        this.noSearchResults = true
+      }
+    }
+
+    this.sortMountains(this.selectedSortValue)
+  }
+
+
 
 }

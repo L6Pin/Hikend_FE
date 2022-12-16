@@ -7,12 +7,17 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class DataTransformComponent {
 
-  @Output() selectedSortValueUpdated = new EventEmitter<number>()
-  selectedSortValue: number = 1
+  @Output() selectedSortValueUpdated = new EventEmitter<number>();
+  @Output() mountainSearchInputUpdated = new EventEmitter<string>();
 
+  selectedSortValue: number = 1;
+  mountainSearchInput: string = "";
 
   selectedSortValueChanged() {
-    console.log(this.selectedSortValue)
     this.selectedSortValueUpdated.emit(this.selectedSortValue)
+  }
+
+  mountainSearchInputChanged() {
+    this.mountainSearchInputUpdated.emit(this.mountainSearchInput)
   }
 }

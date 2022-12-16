@@ -1,5 +1,5 @@
 <div class="data-transform-container">
-    <input type="text" name="" id="" placeholder="🔍">
+    <input type="text" name="" id="" placeholder="🔍" [(ngModel)]="mountainSearchInput" (ngModelChange)="mountainSearchInputChanged()">
     <div class="sort-container">
         <span>Sort:</span>
         <select name="" id="" [(ngModel)]="selectedSortValue" (ngModelChange)="selectedSortValueChanged()">

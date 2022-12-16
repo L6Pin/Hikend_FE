@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 
 export class MountainListItemComponent {
   @Input() cityMountins: any[] = []
+  @Input() noSearchResults: boolean = false;
 }

@@ -2,6 +2,12 @@
     display: flex;  
     flex-direction: column;
 
+    .no-search-results{
+        text-align: center;
+        color: red;
+        margin-top: 20px;
+    }
+
     .mountain-list-item{
         height: 130px;
         background-color: gray;
