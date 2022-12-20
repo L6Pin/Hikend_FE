@@ -1,0 +1,21 @@
+.mountain-route{
+    height: 130px;
+    margin: 16px 0;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: 2px solid #485123;
+    border-radius: 20px;
+
+    .route-details-container{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .download{
+        height: 40px;
+    }
+}

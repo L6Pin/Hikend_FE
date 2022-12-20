@@ -1,0 +1,17 @@
+<div class="mountain-route">
+
+
+    <div class="route-details-container">
+        <div class="route-name"><b>{{hikingRoute.number}} - {{ hikingRoute.name }}</b></div>
+
+        <div class="route-details">
+            <p>Difficulty: {{ hikingRoute.difficulty }}</p>
+            <p>Difficulty: {{ hikingRoute.length }}</p>
+            <p>Difficulty: {{ hikingRoute.timeRequired }}</p>
+        </div>
+
+    </div>
+    <a [href]="hikingRoute.gpx">
+        <img src="https://i.imgur.com/x3N7r8p.png" alt="" class="download">
+    </a>
+</div>

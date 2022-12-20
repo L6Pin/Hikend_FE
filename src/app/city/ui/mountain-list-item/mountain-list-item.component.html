@@ -1,6 +1,6 @@
 <div class="mountain-list-container">
     <ng-container *ngFor="let mountain of cityMountins">
-        <a [routerLink]="'/mountain' + mountain.id">
+        <a [routerLink]="'/mountain/' + mountain.id">
             <div class="mountain-list-item">
                 <p>{{ mountain.name }}</p>
                 <p>{{mountain.distance}} km away</p>

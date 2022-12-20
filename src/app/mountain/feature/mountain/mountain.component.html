@@ -1,0 +1,43 @@
+<div class="mountain" *ngIf="mountain$ | async as vm">
+    <div class="mountain-header">
+        <div class="city-image-darken-overlay"></div>
+        <img class="mountain-photo" [src]="vm.data.photo_url" alt="">
+
+        <div class="header-content">
+
+            <div class="mountain-peak">
+                <img class="mountain-peak-icon" src="https://i.imgur.com/CAOMAL2.png" alt="">
+                <span class="mountain-peak-name">{{vm.data.info.peak}}</span>
+            </div>
+            <div class="mountain-name-and-height-container">
+                <div class="mountain-name">{{ vm.data.name }}</div>
+                <div class="mountain-height">{{ vm.data.info.height }} m</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mountain-content">
+        <p class="mountain-description">
+            {{ vm.data.info.description }}
+        </p>
+        <h3>Local hiking clubs:</h3>
+        <div class="hiking-clubs-container">
+            <a [href]="club.contact" class="hiking-club" *ngFor="let club of vm.data.hikingClubs">
+                <img [src]="club.logo" [alt]="club.name">
+                <p>{{ club.name }}</p>
+            </a>
+            <a [href]="club.contact" class="hiking-club" *ngFor="let club of vm.data.hikingClubs">
+                <img [src]="club.logo" [alt]="club.name">
+                <p>{{ club.name }}</p>
+            </a>
+        </div>
+        <app-mountain-map [coordinates]="vm.data.info.coordinates" [youtubeVideo]="vm.data.yt"></app-mountain-map>
+        <div class="mountain-routes">
+            <h3>Hiking routes:</h3>
+        
+            <ng-container *ngFor="let hikingRoute of vm.data.routes">
+                <app-mountain-route [hikingRoute]="hikingRoute"></app-mountain-route>
+            </ng-container>
+        </div>
+    </div>
+</div>
