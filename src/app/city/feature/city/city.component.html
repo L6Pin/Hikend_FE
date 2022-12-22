@@ -1,8 +1,8 @@
 
-<div class="city-header">
-    <p class="city-name">{{city.name}}</p>
+<div class="city-header" *ngIf="city | async as vm">
+    <p class="city-name">{{vm.data.name}}</p>
     <div class="city-image-darken-overlay"></div>
-    <img [src]="city.photo_url" alt="">
+    <img [src]="vm.data.photo_url" alt="">
 </div>
 <div class="city">
     <app-data-transform (selectedSortValueUpdated)="sortMountains($event)" (mountainSearchInputUpdated)="filterMountains($event)" ></app-data-transform>

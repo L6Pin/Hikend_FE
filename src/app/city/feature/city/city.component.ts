@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { CityService } from '../../data-access/city.service';
+import { citySort } from '../../utils/city-sort.service';
 
 @Component({
   selector: 'app-city',
@@ -9,90 +11,40 @@ import { CityService } from '../../data-access/city.service';
 })
 export class CityComponent implements OnInit {
 
-  constructor(private cityService: CityService, private route: ActivatedRoute) { }
+  constructor(private cityService: CityService, private route: ActivatedRoute, private citySort: citySort) { }
 
-  city: any = {}
+  city!: Observable<any>
   cityMountains: any[] = []
   cityMountainsFiltered: any[] = []
   noSearchResults: boolean = false;
-  selectedSortValue: number = 1;
+  selectedSortValue: string = "Alphabetical-Ascending";
 
   ngOnInit(): void {
-    this.cityService.getSingleCity(this.route.snapshot.params['id']).subscribe(response => {
-      this.city = response.data
+    this.city = this.cityService.getSingleCity(this.route.snapshot.params['id']).pipe(map((response) => {
       this.cityMountains = response.data.mountains;
-      this.cityMountainsFiltered = response.data.mountains
-      this.sortMountainsByAlphabeticalOrder()
-    })
-
+      this.cityMountainsFiltered = this.cityMountains
+      this.citySort.sortMountainsByAlphabeticalOrder(this.cityMountainsFiltered)
+      return response;
+    }))
   }
 
-  sortMountains(event: any) {
-    if (event === "1") this.sortMountainsByAlphabeticalOrder();
-    if (event === "2") this.sortMountainsByReverseAlphabeticalOrder();
-    if (event === "3") this.sortMountainsByClosest();
-    if (event === "4") this.sortMountainsByFurthest();
-    this.selectedSortValue = event
-    console.log("sortMountains fired")
+  sortMountains(selectedSort: any) {
+    if (selectedSort == "Alphabetical-Ascending") this.citySort.sortMountainsByAlphabeticalOrder(this.cityMountainsFiltered)
+    if (selectedSort == "Alphabetical-Descending") this.citySort.sortMountainsByReverseAlphabeticalOrder(this.cityMountainsFiltered);
+    if (selectedSort == "Closest") this.citySort.sortMountainsByClosest(this.cityMountainsFiltered);
+    if (selectedSort == "Furtest") this.citySort.sortMountainsByFurthest(this.cityMountainsFiltered);
   }
 
-  sortMountainsByAlphabeticalOrder() {
-    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
-      const mountainNameA = a.name.toLowerCase();
-      const mountainNameB = b.name.toLowerCase();
-      if (mountainNameA > mountainNameB) {
-        return 1
-      }
-      else return -1
-    })
-  }
-
-  sortMountainsByReverseAlphabeticalOrder() {
-    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
-      const mountainNameA = a.name.toLowerCase();
-      const mountainNameB = b.name.toLowerCase();
-      if (mountainNameA < mountainNameB) {
-        return 1
-      }
-      else return -1
-    })
-  }
-
-  sortMountainsByClosest() {
-    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
-      const mountainDistanceA = a.distance
-      const mountainDistanceB = b.distance
-      if (mountainDistanceA > mountainDistanceB) {
-        return 1
-      }
-      else return -1
-    })
-  }
-
-  sortMountainsByFurthest() {
-    this.cityMountainsFiltered = this.cityMountainsFiltered.sort((a, b) => {
-      const mountainDistanceA = a.distance
-      const mountainDistanceB = b.distance
-      if (mountainDistanceA < mountainDistanceB) {
-        return 1
-      }
-      else return -1
-    })
-  }
-
-  filterMountains(event: any) {
+  filterMountains(userInput: any) {
     this.cityMountainsFiltered = this.cityMountains
 
-
-    if (event === "") {
-      this.cityMountainsFiltered = this.cityMountains
+    if (userInput === "") {
       this.noSearchResults = false
     }
     else {
-      this.cityMountainsFiltered = this.cityMountainsFiltered.filter(mountain => mountain.name.toLowerCase().includes(event.toLowerCase()))
+      this.cityMountainsFiltered = this.cityMountainsFiltered.filter(mountain => mountain.name.toLowerCase().includes(userInput.toLowerCase()))
       this.noSearchResults = false
       if (this.cityMountainsFiltered.length === 0) {
-        console.warn("No search results");
         this.noSearchResults = true
       }
     }

@@ -10,7 +10,6 @@ import { MountainService } from '../../data-access/mountain.service';
 })
 export class MountainComponent implements OnInit {
 
-  mountainData: any = {}
   mountain$!: Observable<any>
 
 
