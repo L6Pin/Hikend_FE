@@ -1,4 +1,4 @@
-<div class="mountain" *ngIf="mountain$ | async as vm">
+<div class="mountain" *ngIf="mountain$ | async as vm; else loader">
     <div class="mountain-header">
         <div class="city-image-darken-overlay"></div>
         <img class="mountain-photo" [src]="vm.data.photo_url" alt="">
@@ -41,3 +41,7 @@
         </div>
     </div>
 </div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
+    

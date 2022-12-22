@@ -51,7 +51,4 @@ export class CityComponent implements OnInit {
 
     this.sortMountains(this.selectedSortValue)
   }
-
-
-
 }
