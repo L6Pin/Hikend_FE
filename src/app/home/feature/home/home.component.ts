@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  test(event: any) {
-    
+  filterCities(event: any) {
+
     this.filteredCities = this.cities
 
     if (event === "") {

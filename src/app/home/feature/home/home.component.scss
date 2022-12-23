@@ -1,5 +1,6 @@
 .home{
-    height: calc(100vh - 80px);
+    height: calc(100vh - 89px);
+    overflow-y: auto;
     background: url("https://i.imgur.com/GB1Q32d.png");
     background-position: bottom;
     background-repeat: no-repeat;
@@ -8,5 +9,4 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow-y: auto;
 }

@@ -1,4 +1,4 @@
-<div class="mountain" *ngIf="mountain$ | async as vm; else loader">
+<div class="mountain-container" *ngIf="mountain$ | async as vm; else loader">
     <div class="mountain-header">
         <div class="city-image-darken-overlay"></div>
         <img class="mountain-photo" [src]="vm.data.photo_url" alt="">
@@ -34,7 +34,7 @@
         <app-mountain-map [coordinates]="vm.data.info.coordinates" [youtubeVideo]="vm.data.yt"></app-mountain-map>
         <div class="mountain-routes">
             <h3>Hiking routes:</h3>
-        
+
             <ng-container *ngFor="let hikingRoute of vm.data.routes">
                 <app-mountain-route [hikingRoute]="hikingRoute"></app-mountain-route>
             </ng-container>
@@ -44,4 +44,3 @@
 <ng-template #loader>
     <app-loader></app-loader>
 </ng-template>
-    

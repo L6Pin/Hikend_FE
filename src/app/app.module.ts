@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './shared/ui/header/header.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterModule } from './shared/ui/footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
+    FooterModule,
     HttpClientModule
   ],
   providers: [],
