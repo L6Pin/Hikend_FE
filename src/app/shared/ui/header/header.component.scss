@@ -4,9 +4,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .login-button, .logout-button{
+        font-weight: bold;
+    }
     
     img {
         height: 40px;
+    }
+
+    .header-menu{
+        display: flex;
+
+        p:last-of-type{
+            margin-left: 8px;
+        }
     }
 }
 
