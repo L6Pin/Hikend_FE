@@ -4,16 +4,24 @@
         <img class="mountain-photo" [src]="vm.data.photo_url" alt="">
 
         <div class="header-content">
-
-            <div class="mountain-peak">
-                <img class="mountain-peak-icon" src="https://i.imgur.com/CAOMAL2.png" alt="">
-                <span class="mountain-peak-name">{{vm.data.info.peak}}</span>
+            <div class="top-row" (click)="toggleSavedMountain(vm.data)">
+                <img class="saved-icon"
+                    [src]="vm.data.saved ? 'https://i.imgur.com/AlJ6o9o.png' : 'https://i.imgur.com/sIFB6dq.png' "
+                    alt="">
             </div>
-            <div class="mountain-name-and-height-container">
-                <div class="mountain-name">{{ vm.data.name }}</div>
-                <div class="mountain-height">{{ vm.data.info.height }} m</div>
+
+            <div class="bottom-row">
+                <div class="mountain-peak">
+                    <img class="mountain-peak-icon" src="https://i.imgur.com/CAOMAL2.png" alt="">
+                    <span class="mountain-peak-name">{{vm.data.info.peak}}</span>
+                </div>
+                <div class="mountain-name-and-height-container">
+                    <div class="mountain-name">{{ vm.data.name }}</div>
+                    <div class="mountain-height">{{ vm.data.info.height }} m</div>
+                </div>
             </div>
         </div>
+
     </div>
 
     <div class="mountain-content">
@@ -21,6 +29,7 @@
             {{ vm.data.info.description }}
         </p>
         <h3>Local hiking clubs:</h3>
+
         <div class="hiking-clubs-container">
             <a [href]="club.contact" class="hiking-club" *ngFor="let club of vm.data.hikingClubs">
                 <img [src]="club.logo" [alt]="club.name">

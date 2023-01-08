@@ -30,33 +30,47 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: space-between;
             color: #EADD46;
 
-            .mountain-peak {
 
-                .mountain-peak-icon {
-                    height: 20px;
-                }
+            .top-row{
 
-                .mountain-peak-name {
-                    margin-left: 4px;
+                display: flex;
+                justify-content: flex-end;
+
+                img{
+                    width: 42px;
                 }
             }
 
-            .mountain-name-and-height-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
+            
+            .bottom-row{
+                .mountain-peak {
 
-                .mountain-name {
-                    font-size: 30px;
-                    font-weight: bold;
-                    width: 75%;
+                    .mountain-peak-icon {
+                        height: 20px;
+                    }
+    
+                    .mountain-peak-name {
+                        margin-left: 4px;
+                    }
                 }
-
-                .mountain-height {
-                    font-size: 20px;
+    
+                .mountain-name-and-height-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+    
+                    .mountain-name {
+                        font-size: 30px;
+                        font-weight: bold;
+                        width: 75%;
+                    }
+    
+                    .mountain-height {
+                        font-size: 20px;
+                    }
                 }
             }
         }
