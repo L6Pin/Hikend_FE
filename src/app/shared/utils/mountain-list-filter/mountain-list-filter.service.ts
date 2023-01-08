@@ -9,21 +9,21 @@ export class MountainListFilterService {
   constructor(private citySort: MountainListSortService) { }
 
   filterMountains(userInput: any, cityMountains: any) {
-      let cityMountainsFiltered: any[] = cityMountains
-      let noSearchResults: boolean = false
+    let cityMountainsListChanged: any[] = cityMountains
+    let noSearchResults: boolean = false
 
-      if (userInput === "") {
-          noSearchResults = false
+    if (userInput === "") {
+      noSearchResults = false
+    }
+    else {
+      cityMountainsListChanged = cityMountainsListChanged.filter(mountain => mountain.name.toLowerCase().includes(userInput.toLowerCase()))
+      noSearchResults = false
+      if (cityMountainsListChanged.length === 0) {
+        noSearchResults = true
       }
-      else {
-          cityMountainsFiltered = cityMountainsFiltered.filter(mountain => mountain.name.toLowerCase().includes(userInput.toLowerCase()))
-          noSearchResults = false
-          if (cityMountainsFiltered.length === 0) {
-              noSearchResults = true
-          }
-      }
+    }
 
-      this.citySort.sortMountains("Alphabetical-Ascending", cityMountainsFiltered)
-      return { cityMountainsFiltered, noSearchResults }
+    this.citySort.sortMountains("Alphabetical-Ascending", cityMountainsListChanged)
+    return { cityMountainsListChanged, noSearchResults }
   }
 }

@@ -16,24 +16,24 @@ export class CityComponent implements OnInit {
 
   city!: Observable<any>
   cityMountains: any[] = []
-  cityMountainsFiltered: any[] = []
+  cityMountainsListChanged: any[] = []
   noSearchResults: boolean = false;
   selectedSortValue: string = "Alphabetical-Ascending";
 
   ngOnInit(): void {
     this.city = this.cityService.getSingleCity(this.route.snapshot.params['id']).pipe(tap((response) => {
       this.cityMountains = response.data.mountains;
-      this.cityMountainsFiltered = this.cityMountains
-      this.mountainListSort.sortMountainsByAlphabeticalOrder(this.cityMountainsFiltered)
+      this.cityMountainsListChanged = this.cityMountains
+      this.mountainListSort.sortMountainsByAlphabeticalOrder(this.cityMountainsListChanged)
     }))
   }
 
   sortMountains(selectedSort: any) {
-    this.cityMountainsFiltered = this.mountainListSort.sortMountains(selectedSort, this.cityMountainsFiltered)
+    this.cityMountainsListChanged = this.mountainListSort.sortMountains(selectedSort, this.cityMountains)
   }
 
   filterMountains(userInput: any) {
-    this.cityMountainsFiltered = this.mountainListFilter.filterMountains(userInput, this.cityMountains).cityMountainsFiltered
+    this.cityMountainsListChanged = this.mountainListFilter.filterMountains(userInput, this.cityMountains).cityMountainsListChanged
     this.noSearchResults = this.mountainListFilter.filterMountains(userInput, this.cityMountains).noSearchResults
   }
 }

@@ -7,17 +7,17 @@ export class MountainListSortService {
 
   constructor() { }
 
-  sortMountains(selectedSort: any, cityMountainsFiltered: any) {
-    if (selectedSort == "Alphabetical-Ascending") this.sortMountainsByAlphabeticalOrder(cityMountainsFiltered)
-    if (selectedSort == "Alphabetical-Descending") this.sortMountainsByReverseAlphabeticalOrder(cityMountainsFiltered);
-    if (selectedSort == "Closest") this.sortMountainsByClosest(cityMountainsFiltered);
-    if (selectedSort == "Furtest") this.sortMountainsByFurthest(cityMountainsFiltered);
+  sortMountains(selectedSort: any, cityMountains: any) {
+    if (selectedSort == "Alphabetical-Ascending") this.sortMountainsByAlphabeticalOrder(cityMountains)
+    if (selectedSort == "Alphabetical-Descending") this.sortMountainsByReverseAlphabeticalOrder(cityMountains);
+    if (selectedSort == "Closest") this.sortMountainsByClosest(cityMountains);
+    if (selectedSort == "Furtest") this.sortMountainsByFurthest(cityMountains);
 
-    return cityMountainsFiltered
+    return cityMountains
   }
 
-  sortMountainsByAlphabeticalOrder(cityMountainsFiltered: any) {
-    cityMountainsFiltered = cityMountainsFiltered.sort((a: any, b: any) => {
+  sortMountainsByAlphabeticalOrder(cityMountains: any) {
+    cityMountains = cityMountains.sort((a: any, b: any) => {
       const mountainNameA = a.name.toLowerCase();
       const mountainNameB = b.name.toLowerCase();
       if (mountainNameA > mountainNameB) {
@@ -27,8 +27,8 @@ export class MountainListSortService {
     })
   }
 
-  sortMountainsByReverseAlphabeticalOrder(cityMountainsFiltered: any) {
-    cityMountainsFiltered = cityMountainsFiltered.sort((a: any, b: any) => {
+  sortMountainsByReverseAlphabeticalOrder(cityMountains: any) {
+    cityMountains = cityMountains.sort((a: any, b: any) => {
       const mountainNameA = a.name.toLowerCase();
       const mountainNameB = b.name.toLowerCase();
       if (mountainNameA < mountainNameB) {
@@ -38,8 +38,8 @@ export class MountainListSortService {
     })
   }
 
-  sortMountainsByClosest(cityMountainsFiltered: any) {
-    cityMountainsFiltered = cityMountainsFiltered.sort((a: any, b: any) => {
+  sortMountainsByClosest(cityMountains: any) {
+    cityMountains = cityMountains.sort((a: any, b: any) => {
       const mountainDistanceA = a.distance
       const mountainDistanceB = b.distance
       if (mountainDistanceA > mountainDistanceB) {
@@ -49,8 +49,8 @@ export class MountainListSortService {
     })
   }
 
-  sortMountainsByFurthest(cityMountainsFiltered: any) {
-    cityMountainsFiltered = cityMountainsFiltered.sort((a: any, b: any) => {
+  sortMountainsByFurthest(cityMountains: any) {
+    cityMountains = cityMountains.sort((a: any, b: any) => {
       const mountainDistanceA = a.distance
       const mountainDistanceB = b.distance
       if (mountainDistanceA < mountainDistanceB) {

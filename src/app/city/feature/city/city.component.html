@@ -7,7 +7,7 @@
     <div class="city">
         <app-mountain-list-filter (selectedSortValueUpdated)="sortMountains($event)"
             (mountainSearchInputUpdated)="filterMountains($event)"></app-mountain-list-filter>
-        <app-mountain-list-item [cityMountins]="cityMountainsFiltered"
+        <app-mountain-list-item [cityMountins]="cityMountainsListChanged"
             [noSearchResults]="noSearchResults"></app-mountain-list-item>
     </div>
 
