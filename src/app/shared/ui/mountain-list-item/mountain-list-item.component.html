@@ -10,4 +10,5 @@
         </a>
     </ng-container>
     <p class="no-search-results" *ngIf="noSearchResults">No mountains found</p>
+    <p *ngIf="cityMountins.length === 0 && noSearchResults === false">No mountains saved</p>
 </div>

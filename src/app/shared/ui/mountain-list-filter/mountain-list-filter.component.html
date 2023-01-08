@@ -5,8 +5,8 @@
         <select name="" id="" [(ngModel)]="selectedSortValue" (ngModelChange)="selectedSortValueChanged()">
             <option value="Alphabetical-Ascending">A - Z</option>
             <option value="Alphabetical-Descending">Z - A</option>
-            <option value="Closest">Closest</option>
-            <option value="Furtest">Furthest away</option>
+            <option *ngIf="currentRoute !== '/saved-mountains'" value="Closest">Closest</option>
+            <option *ngIf="currentRoute !== '/saved-mountains'" value="Furtest">Furthest away</option>
         </select>
     </div>
 </div>

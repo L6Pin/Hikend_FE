@@ -29,7 +29,7 @@ export class CityComponent implements OnInit {
   }
 
   sortMountains(selectedSort: any) {
-    this.cityMountainsListChanged = this.mountainListSort.sortMountains(selectedSort, this.cityMountains)
+    this.cityMountainsListChanged = this.mountainListSort.sortMountains(selectedSort, this.cityMountainsListChanged)
   }
 
   filterMountains(userInput: any) {
