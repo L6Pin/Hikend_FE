@@ -5,14 +5,13 @@
         <img [src]="vm.data.photo_url" alt="">
     </div>
     <div class="city">
-        <app-data-transform (selectedSortValueUpdated)="sortMountains($event)"
-            (mountainSearchInputUpdated)="filterMountains($event)"></app-data-transform>
+        <app-mountain-list-filter (selectedSortValueUpdated)="sortMountains($event)"
+            (mountainSearchInputUpdated)="filterMountains($event)"></app-mountain-list-filter>
         <app-mountain-list-item [cityMountins]="cityMountainsFiltered"
             [noSearchResults]="noSearchResults"></app-mountain-list-item>
     </div>
-    
+
 </div>
 <ng-template #loader>
     <app-loader></app-loader>
 </ng-template>
-    

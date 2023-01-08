@@ -1,19 +1,18 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-data-transform',
-  templateUrl: './data-transform.component.html',
-  styleUrls: ['./data-transform.component.scss']
+  selector: 'app-mountain-list-filter',
+  templateUrl: './mountain-list-filter.component.html',
+  styleUrls: ['./mountain-list-filter.component.scss']
 })
-export class DataTransformComponent {
-
+export class MountainListFilterComponent {
   @Output() selectedSortValueUpdated = new EventEmitter<string>();
   @Output() mountainSearchInputUpdated = new EventEmitter<string>();
 
   selectedSortValue: string = "Alphabetical-Ascending";
   mountainSearchInput: string = "";
 
-  selectedSortValueChanged() {  
+  selectedSortValueChanged() {
     this.selectedSortValueUpdated.emit(this.selectedSortValue)
   }
 

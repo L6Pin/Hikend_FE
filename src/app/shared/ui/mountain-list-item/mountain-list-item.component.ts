@@ -5,10 +5,9 @@ import { Component, Input } from '@angular/core';
   templateUrl: './mountain-list-item.component.html',
   styleUrls: ['./mountain-list-item.component.scss']
 })
-
-
-
 export class MountainListItemComponent {
+
   @Input() cityMountins: any[] = []
   @Input() noSearchResults: boolean = false;
+
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
+import { MountainListFilterService } from 'src/app/shared/utils/mountain-list-filter/mountain-list-filter.service';
+import { MountainListSortService } from 'src/app/shared/utils/mountain-list-sort/mountain-list-sort.service';
 import { CityService } from '../../data-access/city.service';
-import { citySort } from '../../utils/city-sort.service';
 
 @Component({
   selector: 'app-city',
@@ -11,7 +12,7 @@ import { citySort } from '../../utils/city-sort.service';
 })
 export class CityComponent implements OnInit {
 
-  constructor(private cityService: CityService, private route: ActivatedRoute, private citySort: citySort) { }
+  constructor(private cityService: CityService, private route: ActivatedRoute, private mountainListSort: MountainListSortService, private mountainListFilter: MountainListFilterService) { }
 
   city!: Observable<any>
   cityMountains: any[] = []
@@ -20,35 +21,19 @@ export class CityComponent implements OnInit {
   selectedSortValue: string = "Alphabetical-Ascending";
 
   ngOnInit(): void {
-    this.city = this.cityService.getSingleCity(this.route.snapshot.params['id']).pipe(map((response) => {
+    this.city = this.cityService.getSingleCity(this.route.snapshot.params['id']).pipe(tap((response) => {
       this.cityMountains = response.data.mountains;
       this.cityMountainsFiltered = this.cityMountains
-      this.citySort.sortMountainsByAlphabeticalOrder(this.cityMountainsFiltered)
-      return response;
+      this.mountainListSort.sortMountainsByAlphabeticalOrder(this.cityMountainsFiltered)
     }))
   }
 
   sortMountains(selectedSort: any) {
-    if (selectedSort == "Alphabetical-Ascending") this.citySort.sortMountainsByAlphabeticalOrder(this.cityMountainsFiltered)
-    if (selectedSort == "Alphabetical-Descending") this.citySort.sortMountainsByReverseAlphabeticalOrder(this.cityMountainsFiltered);
-    if (selectedSort == "Closest") this.citySort.sortMountainsByClosest(this.cityMountainsFiltered);
-    if (selectedSort == "Furtest") this.citySort.sortMountainsByFurthest(this.cityMountainsFiltered);
+    this.cityMountainsFiltered = this.mountainListSort.sortMountains(selectedSort, this.cityMountainsFiltered)
   }
 
   filterMountains(userInput: any) {
-    this.cityMountainsFiltered = this.cityMountains
-
-    if (userInput === "") {
-      this.noSearchResults = false
-    }
-    else {
-      this.cityMountainsFiltered = this.cityMountainsFiltered.filter(mountain => mountain.name.toLowerCase().includes(userInput.toLowerCase()))
-      this.noSearchResults = false
-      if (this.cityMountainsFiltered.length === 0) {
-        this.noSearchResults = true
-      }
-    }
-
-    this.sortMountains(this.selectedSortValue)
+    this.cityMountainsFiltered = this.mountainListFilter.filterMountains(userInput, this.cityMountains).cityMountainsFiltered
+    this.noSearchResults = this.mountainListFilter.filterMountains(userInput, this.cityMountains).noSearchResults
   }
 }
