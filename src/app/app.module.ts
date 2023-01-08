@@ -9,7 +9,7 @@ import { FooterModule } from './shared/ui/footer/footer.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

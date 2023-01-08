@@ -3,7 +3,7 @@
     <p *ngIf="!isUserLoggedIn; else logout" class="login-button" (click)="userLoggedIn()">Login</p>
     <ng-template #logout>
         <div class="header-menu">
-            <a routerLink="/saved">Saved</a>
+            <a routerLink="/saved-mountains">Saved</a>
             <p class="logout-button" (click)="userLoggedOut()">Logout</p>
         </div>
     </ng-template>

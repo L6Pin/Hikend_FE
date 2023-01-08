@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SavedComponent } from './saved.component';
+import { SavedMountainsComponent } from './saved-mountains.component';
 
-describe('SavedComponent', () => {
-  let component: SavedComponent;
-  let fixture: ComponentFixture<SavedComponent>;
+describe('SavedMountainsComponent', () => {
+  let component: SavedMountainsComponent;
+  let fixture: ComponentFixture<SavedMountainsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SavedComponent ]
+      declarations: [ SavedMountainsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SavedComponent);
+    fixture = TestBed.createComponent(SavedMountainsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

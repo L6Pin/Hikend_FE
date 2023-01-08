@@ -3,7 +3,7 @@
         <a [routerLink]="'/mountain/' + mountain.id">
             <div class="mountain-list-item">
                 <p>{{ mountain.name }}</p>
-                <p>{{mountain.distance}} km away</p>
+                <p *ngIf="mountain.distance">{{mountain.distance}} km away</p>
                 <div class="mountain-list-image-darken-overlay"></div>
                 <img [src]="mountain.photo_url" alt="">
             </div>
