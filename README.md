@@ -5,7 +5,6 @@
 <p> 
 Inspired by my passion for hiking, with the creation of this web application I intended to conveniently allow anybody interested in spending time in nature to find a place that is near their point of interest. 
 <br />
-<br />
 <h2>Technologies</h2>
 <p>For this project, the following technologies were used:</p>
 <ul>
