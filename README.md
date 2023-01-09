@@ -3,10 +3,10 @@
 
 <h2>Project Overview</h2>
 <p> 
-Inspired by my passion for hiking, with the creation of this web application I intended to conveniently allow anybody interested in spending time in nature to find a place that is near their point of interest.
+Inspired by my passion for hiking, with the creation of this web application I intended to conveniently allow anybody interested in spending time in nature to find a place that is near their point of interest. 
 <br />
 <br />
-The users can report and only edit certain properties of the problem (name, room, category and description).
+Once the web page is opened, the user is greeted with a searchbar where they enter the name of the city. Upon selecting, they will be redirected to a page where all of the mountains related to that city are listed. The user has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order in a  alphabetical discending order, as well as closest and furthest from the city.
 <br />
 <br />
 Both types of users can delete problems that are visible to them.
