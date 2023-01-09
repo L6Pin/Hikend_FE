@@ -3,9 +3,7 @@
 
 <h2>Project Overview</h2>
 <p> 
-Web application created for the faculty where I am studying in order to keep track of and report faults that are found by faculty staff. Created with React that uses Redux, SCSS and the knowledge gained from my summer internship and represents my thesis work.
-
-The admin can see and filter all the problems that have been reported, and edit all of their properties.
+Inspired by my passion for hiking, with the creation of this web application I intended to conviniently allow anybody interested in spending time in nature find a place in nature that is near their point of interest.
 <br />
 <br />
 The users can report and only edit certain properties of the problem (name, room, category and description).
