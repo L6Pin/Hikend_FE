@@ -1,5 +1,5 @@
-<h1>Faculty Faults Reporting</h1>
-https://ftn-faults-reporting.vercel.app/
+<h1>Hikend 🌄</h1>
+
 
 <h2>Login data</h2>
 
