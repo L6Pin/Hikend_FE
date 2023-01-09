@@ -6,14 +6,7 @@
 Inspired by my passion for hiking, with the creation of this web application I intended to conveniently allow anybody interested in spending time in nature to find a place that is near their point of interest. 
 <br />
 <br />
-Once the web page is opened, the user is greeted with a search bar where they enter the name of the city. Upon selecting, they will be redirected to a page where all the mountains related to that city are listed. The user has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order in a alphabetical descending order, as well as closest and furthest from the city in real time.
-<br />
-<br />
-Both types of users can delete problems that are visible to them.
-</p>
-</p>
-<br/>
-<img src="./src/assets/images/readme_project_preview.png">
+
 <h2>Technologies</h2>
 <p>For this project, the following technologies were used:</p>
 <ul>
@@ -37,6 +30,15 @@ Both types of users can delete problems that are visible to them.
     </li>
 
 </ul>
+<h2>Application flow</h2>
+Once the web page is opened, the user is greeted with a search bar where they enter the name of the city. Upon selecting, they will be redirected to a page where all the mountains related to that city are listed. The user has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order in a alphabetical descending order, as well as closest and furthest from the city in real time.
+<br />
+<br />
+Both types of users can delete problems that are visible to them.
+</p>
+</p>
+<br/>
+<img src="./src/assets/images/readme_project_preview.png">
 <h2>Design</h2>
 <p>The design was inspired by the look and feel of iOS, Deepin linux distribution and MIUI custom android rom.</p>
 <p>The colors chosen were the following:</p>
