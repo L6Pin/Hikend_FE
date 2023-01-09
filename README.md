@@ -3,7 +3,7 @@
 
 <h2>Project Overview</h2>
 <p> 
-Inspired by my passion for hiking, with the creation of this web application I intended to conviniently allow anybody interested in spending time in nature find a place in nature that is near their point of interest.
+Inspired by my passion for hiking, with the creation of this web application I intended to conveniently allow anybody interested in spending time in nature to find a place in nature that is near their point of interest.
 <br />
 <br />
 The users can report and only edit certain properties of the problem (name, room, category and description).
