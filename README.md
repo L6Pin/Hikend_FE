@@ -10,22 +10,7 @@ Inspired by my passion for hiking, with the creation of this web application I i
 <ul>
     <li><p><span style="font-weight: bold">HTML</span> - Used to create the markup of the page.</p>
     </li>
-        <li><p><span style="font-weight: bold">SASS/CSS</span> - Sass was used in order to streamline and simplify the styling of the page.</p>
-    </li>
-        </li>
-        <li><p><span style="font-weight: bold">ReactJS</span> - This framework was useful to more easily create sections and components of the website.</p>
-    </li>
-    <li><p><span style="font-weight: bold">React Router</span> - React Router was used to dynamically create single problem pages and conditional page redirection.</p>
-    </li>
-        <li><p><span style="font-weight: bold">Redux</span> - Redux was used for storing application critical data separate from the UI, that was used for profile verification and creating app functionalities using it.</p>
-    </li>
-        </li>
-        <li><p><span style="font-weight: bold">Redux persist</span> - Redux persist is a library that allows certain state values to be saved to local storage, therefore making the data available even upon refreshing the page.</p>
-    </li>
-        </li>
-        </li>
-        <li><p><span style="font-weight: bold">Moment.js</span> - Moment.js is a library used for simple date and time formating.</p>
-    </li>
+       
 
 </ul>
 <h2>Application flow</h2>
