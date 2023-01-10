@@ -10,7 +10,7 @@ Inspired by my passion for hiking, with the creation of this web application I i
 <ul>
     <li><p><span style="font-weight: bold">Angular</span> - The framework chosen for this project due to its ability to create and easily work with a component based architecture.</p></li>
 
-   <li><p><span style="font-weight: bold">Angular</span> - Used to create the markup of the page.</p></li>
+   <li><p><span style="font-weight: bold">Leaflet</span> - Open source JavaScript library used for displaying maps.</p></li>
 </ul>
 <h2>Application flow</h2>
 Once the web page is opened, the user is greeted with a search bar where they enter the name of the city. Upon selecting, they will be redirected to a page where all the mountains related to that city are listed. The user has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order or in a alphabetical descending order, as well as closest and furthest from the city, in real time.
