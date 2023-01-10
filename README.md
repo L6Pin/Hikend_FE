@@ -8,7 +8,7 @@ Inspired by my passion for hiking, with the creation of this web application I i
 <h2>Technologies</h2>
 <p>For this project, the following technologies were used:</p>
 <ul>
-    <li><p><span style="font-weight: bold">Angular</span> - Used to create the markup of the page.</p></li>
+    <li><p><span style="font-weight: bold">Angular</span> - The framework chosen for this project due to its ability to create and easily work with a component based architecture.</p></li>
 
    <li><p><span style="font-weight: bold">Angular</span> - Used to create the markup of the page.</p></li>
 </ul>
