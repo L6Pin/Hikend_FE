@@ -26,7 +26,6 @@ Once a mountain is selected, the user will be redirected to the selected mountai
     <li>Available routes, their description and ability to download a .GPX file for offline navigation</li>
   </ul>
 <br />
-<br />
 At the top of the single mountain page the user, if logged in, has the ability to favorite or save a mountain they find interesting. To see the list of all favorited mountains the user can click on the "Saved" navigation link in the header which will take them to a seperate page where all of the mountains, from different cites will be listed. As the mountains are related to different cites, the user loses the ability to sort by "Closest" and "Furthest".
 </p>
 </p>
