@@ -33,7 +33,7 @@ Both types of users can delete problems that are visible to them.
 <br/>
 <img src="./src/assets/images/readme_project_preview.png">
 <h2>Design</h2>
-<p>The design was inspired by the look and feel of iOS, Deepin linux distribution and MIUI custom android rom.</p>
+<p>Colors chosen for the design of the project were intended to associate the user with nature, in the case of the color green, and happines and adventure, which is the case with the yellow color.</p>
 <p>The colors chosen were the following:</p>
 <ul>
     <li>🟨 Yellow (#EADD46)</li>
