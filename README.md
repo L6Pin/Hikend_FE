@@ -22,7 +22,7 @@ Once a mountain is selected, the user will be redirected to the selected mountai
     <li>Mountain height</li>
     <li>Description</li>
     <li>Local hiking clubs</li>
-    <li>Map with a pin shwoing its location</li>
+    <li>Map with a pin shwoing the peak of the mountain</li>
     <li>Available routes, their description and ability to download a .GPX file for offline navigation</li>
   </ul>
 <br />
