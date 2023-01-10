@@ -36,14 +36,6 @@ Both types of users can delete problems that are visible to them.
 <p>The design was inspired by the look and feel of iOS, Deepin linux distribution and MIUI custom android rom.</p>
 <p>The colors chosen were the following:</p>
 <ul>
-    <li>Blue (#007ce1)</li>
-    <li>Green (#28cd41)</li>
-    <li>Red (#ff3b30)</li>
-    <li>Orange (#f58b00)</li>
-    <li>Dark gray (#333333)</li>
-    <li>Light gray #1(#e5e5e5)</li>
-    <li>Light gray #2(#b2b2b2)</li>
+    <li>🟨 Yellow (#EADD46)</li>
+    <li>🟩 Green (#485123)</li>
 </ul>
-
-<p>The Figma design can be found <a href="https://www.figma.com/file/qIvcp0BmK78Dx8QuQNitzl/Faculty-Faults-Reporting">here</a>.</p>
-
