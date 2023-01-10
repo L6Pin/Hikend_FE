@@ -30,7 +30,6 @@ At the top of the single mountain page the user, if logged in, has the ability t
 </p>
 </p>
 <br/>
-<img src="./src/assets/images/readme_project_preview.png">
 <h2>Design</h2>
 <p>Colors chosen for the design of the project were intended to associate the user with nature, in the case of the color green, and happines and adventure, which is the case with the yellow color.</p>
 <p>The colors chosen were the following:</p>
