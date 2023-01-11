@@ -16,7 +16,8 @@ export class MountainListFilterService {
       noSearchResults = false
     }
     else {
-      cityMountainsListChanged = cityMountainsListChanged.filter(mountain => mountain.name.toLowerCase().includes(userInput.toLowerCase()))
+      cityMountainsListChanged = cityMountainsListChanged.filter(mountain => 
+        mountain.name.toLowerCase().includes(userInput.toLowerCase()))
       noSearchResults = false
       if (cityMountainsListChanged.length === 0) {
         noSearchResults = true

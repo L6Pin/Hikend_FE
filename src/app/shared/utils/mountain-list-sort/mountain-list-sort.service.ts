@@ -8,10 +8,17 @@ export class MountainListSortService {
   constructor() { }
 
   sortMountains(selectedSort: any, cityMountainsListChanged: any) {
-    if (selectedSort == "Alphabetical-Ascending") this.sortMountainsByAlphabeticalOrder(cityMountainsListChanged)
-    if (selectedSort == "Alphabetical-Descending") this.sortMountainsByReverseAlphabeticalOrder(cityMountainsListChanged);
-    if (selectedSort == "Closest") this.sortMountainsByClosest(cityMountainsListChanged);
-    if (selectedSort == "Furtest") this.sortMountainsByFurthest(cityMountainsListChanged);
+    if (selectedSort == "Alphabetical-Ascending") 
+      this.sortMountainsByAlphabeticalOrder(cityMountainsListChanged)
+
+    if (selectedSort == "Alphabetical-Descending") 
+      this.sortMountainsByReverseAlphabeticalOrder(cityMountainsListChanged);
+
+    if (selectedSort == "Closest") 
+      this.sortMountainsByClosest(cityMountainsListChanged);
+      
+    if (selectedSort == "Furtest") 
+      this.sortMountainsByFurthest(cityMountainsListChanged);
 
     return cityMountainsListChanged
   }

@@ -1,4 +1,4 @@
-<div class="city-container" *ngIf="city | async as vm; else loader">
+<div class="city-container" *ngIf="city$ | async as vm; else loader">
     <div class="city-header">
         <p class="city-name">{{vm.data.name}}</p>
         <div class="city-image-darken-overlay"></div>
