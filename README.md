@@ -16,7 +16,7 @@ Inspired by my passion for hiking, with the creation of this web application I i
 Once the web page is opened, the user is greeted with a search bar where they enter the name of the city. Upon selecting, they will be redirected to a page where all the mountains related to that city are listed. The user has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order or in a alphabetical descending order, as well as closest and furthest from the city, in real time.
 <br />
 <br />
-<img style="height: 100px;" src="./src/assets/1.gif">
+<img style="height: 200px;" src="./src/assets/1.gif">
 Once a mountain is selected, the user will be redirected to the selected mountain page. There he will be able to find useful information such as:
   <ul>
     <li>Mountain peak</li>
