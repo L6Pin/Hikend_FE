@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
-import { MountainListFilterService } from 'src/app/shared/utils/mountain-list-filter/mountain-list-filter.service';
-import { MountainListSortService } from 'src/app/shared/utils/mountain-list-sort/mountain-list-sort.service';
 import { CityService } from '../../data-access/city.service';
 import { City, CityMountains } from 'src/app/shared/models/city';
+import {
+  sortMountains,
+  sortMountainsByAlphabeticalOrder,
+} from 'src/app/shared/utils/mountain-list-sort.utils';
+import { filterMountains } from 'src/app/shared/utils/mountain-list-filter.utils';
 
 @Component({
   selector: 'app-city',
@@ -14,9 +17,7 @@ import { City, CityMountains } from 'src/app/shared/models/city';
 export class CityComponent implements OnInit {
   constructor(
     private cityService: CityService,
-    private route: ActivatedRoute,
-    private mountainListSort: MountainListSortService,
-    private mountainListFilter: MountainListFilterService
+    private route: ActivatedRoute
   ) {}
 
   city$!: Observable<City>;
@@ -32,26 +33,24 @@ export class CityComponent implements OnInit {
         tap((response) => {
           this.cityMountains = response.mountains;
           this.cityMountainsListChanged = this.cityMountains;
-          this.mountainListSort.sortMountainsByAlphabeticalOrder(
-            this.cityMountainsListChanged
-          );
+          sortMountainsByAlphabeticalOrder(this.cityMountainsListChanged);
         })
       );
   }
 
   onUserSelectsortMountains(selectedSort: string) {
-    this.cityMountainsListChanged = this.mountainListSort.sortMountains(
+    this.cityMountainsListChanged = sortMountains(
       selectedSort,
       this.cityMountainsListChanged
     );
   }
 
   onUserInputfilterMountains(userInput: string) {
-    this.cityMountainsListChanged = this.mountainListFilter.filterMountains(
+    this.cityMountainsListChanged = filterMountains(
       userInput,
       this.cityMountains
     ).cityMountainsListChanged;
-    this.noSearchResults = this.mountainListFilter.filterMountains(
+    this.noSearchResults = filterMountains(
       userInput,
       this.cityMountains
     ).noSearchResults;
