@@ -1,4 +1,8 @@
-<div class="home">
-    <app-home-search [cities]="filteredCities" [noSearchResults]="noSearchResults" (searchInputUpdate)="filterCities($event)">
+<div class="home" *ngIf="cities$ | async as vm; else loader">
+    <app-home-search [cities]="filteredCities" [noSearchResults]="noSearchResults"
+        (searchInputUpdate)="filterCities($event)">
     </app-home-search>
 </div>
+<ng-template #loader>
+    <app-loader></app-loader>
+</ng-template>
