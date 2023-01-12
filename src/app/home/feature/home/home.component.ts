@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { City } from 'src/app/shared/models/city';
 import { HomeService } from '../../data-access/home.service';
+
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,8 @@ export class HomeComponent implements OnInit {
 
 
 
-  cities: any[] = []
-  filteredCities: any[] = []
+  cities: City[] = []
+  filteredCities: City[] = []
   noSearchResults: boolean = false
 
   constructor(private homeService: HomeService) {
@@ -21,12 +23,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     this.homeService.getCities().subscribe(res => {
-      this.cities = res.data
+      this.cities = res
     })
   }
 
-  filterCities(event: any) {
+  filterCities(event: string) {
 
     this.filteredCities = this.cities
 

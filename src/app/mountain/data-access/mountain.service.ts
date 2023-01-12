@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, tap } from 'rxjs';
+import { Mountain, MountainUpdated } from '../../shared/models/mountain';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MountainService {
 
-  updatedMountain: any = {}
   private refetchSubject = new BehaviorSubject(null)
 
   constructor(private http: HttpClient) { }
@@ -17,12 +17,12 @@ export class MountainService {
   }
 
   getSingleMountain(mountainId: number) {
-    return this.http.get<any>(`http://localhost:5000/hikend-bb683/us-central1/app/api/mountain/${mountainId}`)
+    return this.http.get<Mountain>(`http://localhost:5000/hikend-bb683/us-central1/app/api/mountain/${mountainId}`)
   }
 
-  toggleSavedMountain(mountainId: number, mountain: any) {
+  toggleSavedMountain(mountainId: number, mountain: Mountain) {
 
-    this.updatedMountain = {
+        const updatedMountain: MountainUpdated = {
         info: mountain.info,
         name: mountain.name,
         saved: !mountain.saved,
@@ -32,7 +32,7 @@ export class MountainService {
         routes: mountain.routes
     }
 
-    return this.http.put<any>(`http://localhost:5000/hikend-bb683/us-central1/app/api/mountain/update/${mountainId}`, this.updatedMountain).pipe(
+    return this.http.put<MountainUpdated>(`http://localhost:5000/hikend-bb683/us-central1/app/api/mountain/update/${mountainId}`, updatedMountain).pipe(
       tap(()=> this.refetchSubject.next(null))
     )
   }

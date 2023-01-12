@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CityMountains } from '../../models/city';
 
 @Component({
   selector: 'app-mountain-list-item',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class MountainListItemComponent {
 
-  @Input() cityMountins: any[] = []
+  @Input() cityMountins: CityMountains[] = []
   @Input() noSearchResults: boolean = false;
 
 }

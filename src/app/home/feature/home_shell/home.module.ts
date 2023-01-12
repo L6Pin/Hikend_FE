@@ -5,9 +5,6 @@ import { HomeShellRoutingModule } from './home-shell.routing.module';
 import { HomeSearchComponent } from '../../ui/home-search/home-search.component';
 import { FormsModule } from '@angular/forms';
 
-
-
-
 @NgModule({
   declarations: [
     HomeComponent,

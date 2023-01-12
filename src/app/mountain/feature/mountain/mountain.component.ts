@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
+import { Mountain } from 'src/app/shared/models/mountain';
 import { MountainService } from '../../data-access/mountain.service';
+
 
 @Component({
   selector: 'app-mountain',
@@ -10,8 +12,8 @@ import { MountainService } from '../../data-access/mountain.service';
 })
 export class MountainComponent implements OnInit {
 
-  mountain$!: Observable<any>;
-  mountainId: any = this.route.snapshot.params["id"];
+  mountain$!: Observable<Mountain>;
+  mountainId: number = this.route.snapshot.params["id"];
 
   constructor(private mountainService: MountainService, private route: ActivatedRoute) { }
 
@@ -21,7 +23,7 @@ export class MountainComponent implements OnInit {
     )
   }
 
-  toggleSavedMountain(mountain: any) {
+  toggleSavedMountain(mountain: Mountain) {
     this.mountainService.toggleSavedMountain(this.mountainId, mountain).subscribe()
   }
 }

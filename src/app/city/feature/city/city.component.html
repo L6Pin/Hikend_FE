@@ -1,12 +1,12 @@
 <div class="city-container" *ngIf="city$ | async as vm; else loader">
     <div class="city-header">
-        <p class="city-name">{{vm.data.name}}</p>
+        <p class="city-name">{{vm.name}}</p>
         <div class="city-image-darken-overlay"></div>
-        <img [src]="vm.data.photo_url" alt="">
+        <img [src]="vm.photo_url" alt="">
     </div>
     <div class="city">
-        <app-mountain-list-filter (selectedSortValueUpdated)="sortMountains($event)"
-            (mountainSearchInputUpdated)="filterMountains($event)"></app-mountain-list-filter>
+        <app-mountain-list-filter (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
+            (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"></app-mountain-list-filter>
         <app-mountain-list-item [cityMountins]="cityMountainsListChanged"
             [noSearchResults]="noSearchResults"></app-mountain-list-item>
     </div>

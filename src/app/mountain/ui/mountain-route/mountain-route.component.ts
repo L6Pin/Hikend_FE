@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { MountainRoutes } from 'src/app/shared/models/mountain';
+
 
 @Component({
   selector: 'app-mountain-route',
@@ -7,6 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class MountainRouteComponent {
 
-  @Input() hikingRoute:any = {}
+  @Input() hikingRoute!:MountainRoutes;
 
 }

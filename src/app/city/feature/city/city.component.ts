@@ -4,6 +4,7 @@ import { map, Observable, tap } from 'rxjs';
 import { MountainListFilterService } from 'src/app/shared/utils/mountain-list-filter/mountain-list-filter.service';
 import { MountainListSortService } from 'src/app/shared/utils/mountain-list-sort/mountain-list-sort.service';
 import { CityService } from '../../data-access/city.service';
+import { City, CityMountains } from 'src/app/shared/models/city';
 
 @Component({
   selector: 'app-city',
@@ -19,25 +20,25 @@ export class CityComponent implements OnInit {
     private mountainListFilter: MountainListFilterService
   ) { }
 
-  city$!: Observable<any>;
-  cityMountains: any[] = [];
-  cityMountainsListChanged: any[] = [];
+  city$!: Observable<City>;
+  cityMountains: CityMountains[] = [];
+  cityMountainsListChanged: CityMountains[] = [];
   noSearchResults: boolean = false;
   selectedSortValue: string = "Alphabetical-Ascending";
 
   ngOnInit(): void {
     this.city$ = this.cityService.getSingleCity(this.route.snapshot.params['id']).pipe(tap((response) => {
-      this.cityMountains = response.data.mountains;
+      this.cityMountains = response.mountains;
       this.cityMountainsListChanged = this.cityMountains;
       this.mountainListSort.sortMountainsByAlphabeticalOrder(this.cityMountainsListChanged);
     }))
   }
 
-  sortMountains(selectedSort: any) {
+  onUserSelectsortMountains(selectedSort: string) {
     this.cityMountainsListChanged = this.mountainListSort.sortMountains(selectedSort, this.cityMountainsListChanged);
   }
 
-  filterMountains(userInput: any) {
+  onUserInputfilterMountains(userInput: string) {
     this.cityMountainsListChanged = this.mountainListFilter.filterMountains(userInput, this.cityMountains).cityMountainsListChanged;
     this.noSearchResults = this.mountainListFilter.filterMountains(userInput, this.cityMountains).noSearchResults;
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CityMountains } from '../../models/city';
 import { MountainListSortService } from '../mountain-list-sort/mountain-list-sort.service';
 
 @Injectable({
@@ -8,8 +9,8 @@ export class MountainListFilterService {
 
   constructor(private citySort: MountainListSortService) { }
 
-  filterMountains(userInput: any, cityMountains: any) {
-    let cityMountainsListChanged: any[] = cityMountains
+  filterMountains(userInput: string, cityMountains: CityMountains[]) {
+    let cityMountainsListChanged: CityMountains[] = cityMountains
     let noSearchResults: boolean = false
 
     if (userInput === "") {
