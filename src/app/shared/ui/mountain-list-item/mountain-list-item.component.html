@@ -1,14 +1,16 @@
 <div class="mountain-list-container">
-    <ng-container *ngFor="let mountain of cityMountins">
-        <a [routerLink]="'/mountain/' + mountain.id">
-            <div class="mountain-list-item">
-                <p>{{ mountain.name }}</p>
-                <p *ngIf="mountain.distance">{{mountain.distance}} km away</p>
-                <div class="mountain-list-image-darken-overlay"></div>
-                <img [src]="mountain.photo_url" alt="">
-            </div>
-        </a>
-    </ng-container>
-    <p class="no-search-results" *ngIf="noSearchResults">No mountains found</p>
-    <p *ngIf="cityMountins.length === 0 && noSearchResults === false">No mountains saved</p>
+  <ng-container *ngFor="let mountain of cityMountins">
+    <a [routerLink]="'/mountain/' + mountain.id">
+      <div class="mountain-list-item">
+        <p>{{ mountain.name }}</p>
+        <p *ngIf="mountain.distance">{{ mountain.distance }} km away</p>
+        <div class="mountain-list-image-darken-overlay"></div>
+        <img [src]="mountain.photo_url" alt="" />
+      </div>
+    </a>
+  </ng-container>
+  <p class="no-search-results" *ngIf="noSearchResults">No mountains found</p>
+  <p *ngIf="cityMountins.length === 0 && noSearchResults === false">
+    No mountains saved
+  </p>
 </div>

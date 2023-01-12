@@ -7,15 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { LoaderModule } from 'src/app/shared/ui/loader/loader.module';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    HomeSearchComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    HomeShellRoutingModule,
-    LoaderModule
-  ]
+  declarations: [HomeComponent, HomeSearchComponent],
+  imports: [CommonModule, FormsModule, HomeShellRoutingModule, LoaderModule],
 })
-export class HomeModule { }
+export class HomeModule {}

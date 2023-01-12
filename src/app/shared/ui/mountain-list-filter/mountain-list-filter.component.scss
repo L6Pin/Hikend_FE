@@ -1,27 +1,24 @@
-.data-transform-container{
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.data-transform-container {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    input {
-        border: 2px solid #485123;
-        border-radius: 20px;
-        padding: 6px 8px;
-        width: 35%;
+  input {
+    border: 2px solid #485123;
+    border-radius: 20px;
+    padding: 6px 8px;
+    width: 35%;
+  }
+
+  .sort-container {
+    span {
+      margin-right: 8px;
     }
 
-    .sort-container{
-
-        span{
-            margin-right: 8px;
-        }
-
-        select{
-            border-radius: 20px;
-            padding: 2px;
-        }
-
-    
+    select {
+      border-radius: 20px;
+      padding: 2px;
     }
+  }
 }

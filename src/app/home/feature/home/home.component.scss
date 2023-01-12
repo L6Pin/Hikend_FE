@@ -1,12 +1,12 @@
-.home{
-    height: calc(100vh - 89px);
-    overflow-y: auto;
-    background: url("https://i.imgur.com/GB1Q32d.png");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 250% 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.home {
+  height: calc(100vh - 89px);
+  overflow-y: auto;
+  background: url("https://i.imgur.com/GB1Q32d.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 250% 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

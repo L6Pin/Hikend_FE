@@ -1,52 +1,55 @@
-.mountain-list-container{
-    display: flex;  
-    flex-direction: column;
+.mountain-list-container {
+  display: flex;
+  flex-direction: column;
 
-    .no-search-results{
-        text-align: center;
-        color: red;
-        margin-top: 20px;
+  .no-search-results {
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+  }
+
+  .mountain-list-item {
+    height: 130px;
+    background-color: gray;
+    margin-bottom: 8px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 8px;
+
+    p {
+      font-size: 20px;
+      position: relative;
+      z-index: 3;
+      color: #eadd46;
+
+      &:last-of-type {
+        font-size: 16px;
+      }
     }
 
-    .mountain-list-item{
-        height: 130px;
-        background-color: gray;
-        margin-bottom: 8px;
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        padding: 8px;
-
-        p {
-            font-size: 20px;
-            position: relative;
-            z-index: 3;
-            color: #EADD46;
-
-
-            &:last-of-type{
-                font-size: 16px;
-            }
-        }
-
-        .mountain-list-image-darken-overlay {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 100%);
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+    .mountain-list-image-darken-overlay {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+      top: 0;
+      left: 0;
+      z-index: 2;
     }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
 }

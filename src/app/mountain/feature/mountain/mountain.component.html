@@ -1,55 +1,75 @@
 <div class="mountain-container" *ngIf="mountain$ | async as vm; else loader">
-    <div class="mountain-header">
-        <div class="city-image-darken-overlay"></div>
-        <img class="mountain-photo" [src]="vm.photo_url" alt="">
+  <div class="mountain-header">
+    <div class="city-image-darken-overlay"></div>
+    <img class="mountain-photo" [src]="vm.photo_url" alt="" />
 
-        <div class="header-content">
-            <div class="top-row" (click)="toggleSavedMountain(vm)">
-                <img class="saved-icon"
-                    [src]="vm.saved ? 'https://i.imgur.com/AlJ6o9o.png' : 'https://i.imgur.com/sIFB6dq.png' "
-                    alt="">
-            </div>
+    <div class="header-content">
+      <div class="top-row" (click)="toggleSavedMountain(vm)">
+        <img
+          class="saved-icon"
+          [src]="
+            vm.saved
+              ? 'https://i.imgur.com/AlJ6o9o.png'
+              : 'https://i.imgur.com/sIFB6dq.png'
+          "
+          alt=""
+        />
+      </div>
 
-            <div class="bottom-row">
-                <div class="mountain-peak">
-                    <img class="mountain-peak-icon" src="https://i.imgur.com/CAOMAL2.png" alt="">
-                    <span class="mountain-peak-name">{{vm.info.peak}}</span>
-                </div>
-                <div class="mountain-name-and-height-container">
-                    <div class="mountain-name">{{ vm.name }}</div>
-                    <div class="mountain-height">{{ vm.info.height }} m</div>
-                </div>
-            </div>
+      <div class="bottom-row">
+        <div class="mountain-peak">
+          <img
+            class="mountain-peak-icon"
+            src="https://i.imgur.com/CAOMAL2.png"
+            alt=""
+          />
+          <span class="mountain-peak-name">{{ vm.info.peak }}</span>
         </div>
-
+        <div class="mountain-name-and-height-container">
+          <div class="mountain-name">{{ vm.name }}</div>
+          <div class="mountain-height">{{ vm.info.height }} m</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="mountain-content">
-        <p class="mountain-description">
-            {{ vm.info.description }}
-        </p>
-        <h3>Local hiking clubs:</h3>
+  <div class="mountain-content">
+    <p class="mountain-description">
+      {{ vm.info.description }}
+    </p>
+    <h3>Local hiking clubs:</h3>
 
-        <div class="hiking-clubs-container">
-            <a [href]="club.contact" class="hiking-club" *ngFor="let club of vm.hikingClubs">
-                <img [src]="club.logo" [alt]="club.name">
-                <p>{{ club.name }}</p>
-            </a>
-            <a [href]="club.contact" class="hiking-club" *ngFor="let club of vm.hikingClubs">
-                <img [src]="club.logo" [alt]="club.name">
-                <p>{{ club.name }}</p>
-            </a>
-        </div>
-        <app-mountain-map [coordinates]="vm.info.coordinates" [youtubeVideo]="vm.yt"></app-mountain-map>
-        <div class="mountain-routes">
-            <h3>Hiking routes:</h3>
-
-            <ng-container *ngFor="let hikingRoute of vm.routes">
-                <app-mountain-route [hikingRoute]="hikingRoute"></app-mountain-route>
-            </ng-container>
-        </div>
+    <div class="hiking-clubs-container">
+      <a
+        [href]="club.contact"
+        class="hiking-club"
+        *ngFor="let club of vm.hikingClubs"
+      >
+        <img [src]="club.logo" [alt]="club.name" />
+        <p>{{ club.name }}</p>
+      </a>
+      <a
+        [href]="club.contact"
+        class="hiking-club"
+        *ngFor="let club of vm.hikingClubs"
+      >
+        <img [src]="club.logo" [alt]="club.name" />
+        <p>{{ club.name }}</p>
+      </a>
     </div>
+    <app-mountain-map
+      [coordinates]="vm.info.coordinates"
+      [youtubeVideo]="vm.yt"
+    ></app-mountain-map>
+    <div class="mountain-routes">
+      <h3>Hiking routes:</h3>
+
+      <ng-container *ngFor="let hikingRoute of vm.routes">
+        <app-mountain-route [hikingRoute]="hikingRoute"></app-mountain-route>
+      </ng-container>
+    </div>
+  </div>
 </div>
 <ng-template #loader>
-    <app-loader></app-loader>
+  <app-loader></app-loader>
 </ng-template>

@@ -8,9 +8,8 @@ describe('MountainMapComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MountainMapComponent ]
-    })
-    .compileComponents();
+      declarations: [MountainMapComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MountainMapComponent);
     component = fixture.componentInstance;

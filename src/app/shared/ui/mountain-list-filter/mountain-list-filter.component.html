@@ -1,12 +1,28 @@
 <div class="data-transform-container">
-    <input type="text" name="" id="" placeholder="🔍" [(ngModel)]="mountainSearchInput" (ngModelChange)="mountainSearchInputChanged()">
-    <div class="sort-container">
-        <span>Sort:</span>
-        <select name="" id="" [(ngModel)]="selectedSortValue" (ngModelChange)="selectedSortValueChanged()">
-            <option value="Alphabetical-Ascending">A - Z</option>
-            <option value="Alphabetical-Descending">Z - A</option>
-            <option *ngIf="currentRoute !== '/saved-mountains'" value="Closest">Closest</option>
-            <option *ngIf="currentRoute !== '/saved-mountains'" value="Furtest">Furthest away</option>
-        </select>
-    </div>
+  <input
+    type="text"
+    name=""
+    id=""
+    placeholder="🔍"
+    [(ngModel)]="mountainSearchInput"
+    (ngModelChange)="mountainSearchInputChanged()"
+  />
+  <div class="sort-container">
+    <span>Sort:</span>
+    <select
+      name=""
+      id=""
+      [(ngModel)]="selectedSortValue"
+      (ngModelChange)="selectedSortValueChanged()"
+    >
+      <option value="Alphabetical-Ascending">A - Z</option>
+      <option value="Alphabetical-Descending">Z - A</option>
+      <option *ngIf="currentRoute !== '/saved-mountains'" value="Closest">
+        Closest
+      </option>
+      <option *ngIf="currentRoute !== '/saved-mountains'" value="Furtest">
+        Furthest away
+      </option>
+    </select>
+  </div>
 </div>

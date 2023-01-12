@@ -1,9 +1,16 @@
-<div class="saved-mountains-container" *ngIf="mountains$ | async as vm; else loading">
-    <app-mountain-list-filter (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
-    (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"></app-mountain-list-filter>
-<app-mountain-list-item [cityMountins]="savedMountainsListChanged"
-    [noSearchResults]="noSearchResults"></app-mountain-list-item>
+<div
+  class="saved-mountains-container"
+  *ngIf="mountains$ | async as vm; else loading"
+>
+  <app-mountain-list-filter
+    (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
+    (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"
+  ></app-mountain-list-filter>
+  <app-mountain-list-item
+    [cityMountins]="savedMountainsListChanged"
+    [noSearchResults]="noSearchResults"
+  ></app-mountain-list-item>
 </div>
 <ng-template #loading>
-    <app-loader></app-loader>
+  <app-loader></app-loader>
 </ng-template>

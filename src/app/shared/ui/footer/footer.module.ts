@@ -1,9 +1,8 @@
-import { NgModule } from "@angular/core";
-import { FooterComponent } from "./footer.component";
+import { NgModule } from '@angular/core';
+import { FooterComponent } from './footer.component';
 
 @NgModule({
-    declarations: [FooterComponent],
-    exports: [FooterComponent]
+  declarations: [FooterComponent],
+  exports: [FooterComponent],
 })
-
-export class FooterModule { }
+export class FooterModule {}

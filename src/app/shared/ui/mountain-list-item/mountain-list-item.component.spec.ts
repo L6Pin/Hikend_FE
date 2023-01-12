@@ -8,9 +8,8 @@ describe('MountainListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MountainListItemComponent ]
-    })
-    .compileComponents();
+      declarations: [MountainListItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MountainListItemComponent);
     component = fixture.componentInstance;
