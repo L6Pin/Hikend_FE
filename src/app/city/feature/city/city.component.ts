@@ -18,13 +18,14 @@ export class CityComponent implements OnInit {
   constructor(
     private cityService: CityService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   city$!: Observable<City>;
   cityMountains: CityMountains[] = [];
   cityMountainsListChanged: CityMountains[] = [];
   noSearchResults: boolean = false;
   selectedSortValue: string = 'Alphabetical-Ascending';
+  cityMountainsMapView: boolean = true;
 
   ngOnInit(): void {
     this.city$ = this.cityService
@@ -54,5 +55,13 @@ export class CityComponent implements OnInit {
       userInput,
       this.cityMountains
     ).noSearchResults;
+  }
+
+  toggleCityMountainsMapView() {
+    this.cityMountainsMapView = true;
+  }
+
+  toggleCityMountainsListView() {
+    this.cityMountainsMapView = false;
   }
 }

@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { LoaderModule } from 'src/app/shared/ui/loader/loader.module';
 import { MountainListFilterModule } from 'src/app/shared/ui/mountain-list-filter/mountain-list-filter.module';
 import { MountainListItemModule } from 'src/app/shared/ui/mountain-list-item/mountain-list-item.module';
+import { MountainsMapComponent } from '../../ui/mountains-map/mountains-map.component';
 
 import { CityComponent } from '../city/city.component';
 import { CityShellRoutingModule } from './city-shell.routing.module';
 
 @NgModule({
-  declarations: [CityComponent],
+  declarations: [CityComponent, MountainsMapComponent],
   imports: [
     CommonModule,
     CityShellRoutingModule,
