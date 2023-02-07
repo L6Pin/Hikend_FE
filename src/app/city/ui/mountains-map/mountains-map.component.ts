@@ -16,10 +16,6 @@ export class MountainsMapComponent implements OnInit {
   private cityMarker = new L.Marker([0, 0]);
   private mountainMarkers: L.Marker[] = [];
 
-  private setCoordinates(lat: number, long: number) {
-    this.centroid = [lat, long];
-  }
-
   private setMarker(lat: number, long: number) {
     let cityMarkerIcon = L.icon({
       iconUrl: 'https://i.imgur.com/FosaApX.png',
@@ -33,16 +29,25 @@ export class MountainsMapComponent implements OnInit {
     let mountainMarkerIcon = L.icon({
       iconUrl: 'https://i.imgur.com/5tQEfWV.png',
       iconSize: [35, 35],
-      shadowAnchor: [2,35]
+      shadowAnchor: [2, 35],
     });
 
     this.cityMountains.forEach((mountain) => {
       this.mountainMarkers.push(
         new L.Marker([mountain.coordinates.lat, mountain.coordinates.long], {
           icon: mountainMarkerIcon,
-        }).bindPopup(
-          "<a href='http://localhost:4200/mountain/1669995883756'>Mountain</a>"
-        )
+        })
+          .bindTooltip('Planina <br> <span>(300 m)</span>', {
+            permanent: true,
+            direction: 'bottom',
+            className: 'Lasta',
+          })
+          .on('click', function () {
+            window.open(
+              'http://localhost:4200/mountain/1669995883756',
+              '_self'
+            );
+          })
       );
     });
   }
@@ -84,7 +89,13 @@ export class MountainsMapComponent implements OnInit {
       }
     );
 
+    let featureGroup = L.featureGroup([
+      ...this.mountainMarkers,
+      this.cityMarker,
+    ]);
+
     this.map.zoomControl.setPosition('bottomleft');
+    this.map.fitBounds(featureGroup.getBounds());
     this.cityMarker.addTo(this.map);
     this.addCityMountainMarkers();
     this.drawLineFromCityToMountain();
@@ -92,7 +103,6 @@ export class MountainsMapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.setCoordinates(this.cityCoordinates.lat, this.cityCoordinates.long);
     this.setMarker(this.cityCoordinates.lat, this.cityCoordinates.long);
     this.setCityMountainMarkers();
     this.initMap();
