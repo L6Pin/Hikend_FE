@@ -21,19 +21,27 @@ export class MountainsMapComponent implements OnInit {
   }
 
   private setMarker(lat: number, long: number) {
-    this.cityMarker = new L.Marker([lat, long]);
+    let cityMarkerIcon = L.icon({
+      iconUrl: 'https://i.imgur.com/FosaApX.png',
+      iconSize: [35, 35],
+    });
+
+    this.cityMarker = new L.Marker([lat, long], { icon: cityMarkerIcon });
   }
 
   private setCityMountainMarkers() {
+    let mountainMarkerIcon = L.icon({
+      iconUrl: 'https://i.imgur.com/5tQEfWV.png',
+      iconSize: [35, 35],
+      shadowAnchor: [2,35]
+    });
+
     this.cityMountains.forEach((mountain) => {
       this.mountainMarkers.push(
-        new L.Marker([
-          mountain.coordinates.lat,
-          mountain.coordinates.long,
-        ]).bindPopup(
+        new L.Marker([mountain.coordinates.lat, mountain.coordinates.long], {
+          icon: mountainMarkerIcon,
+        }).bindPopup(
           "<a href='http://localhost:4200/mountain/1669995883756'>Mountain</a>"
-          
-      
         )
       );
     });
