@@ -1,5 +1,7 @@
 <div class="mountain-list-container">
   <ng-container *ngFor="let mountain of cityMountins">
+
+    <!-- <div class="box"></div> -->
     <a [routerLink]="'/mountain/' + mountain.id">
       <div class="mountain-list-item">
         <p>{{ mountain.name }}</p>

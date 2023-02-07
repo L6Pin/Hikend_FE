@@ -33,11 +33,9 @@
       height: 100%;
       width: 100%;
       position: absolute;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0.55) 100%
-      );
+      background: linear-gradient(90deg,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.55) 100%);
       top: 0;
       left: 0;
       z-index: 2;
@@ -50,6 +48,29 @@
       position: absolute;
       top: 0;
       left: 0;
+    }
+  }
+}
+
+@media(min-width: 1024px) {
+  .mountain-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    a {
+      width: 49.5%;
+
+      .mountain-list-item {
+        height: 150px;
+        margin-bottom: 16px;
+        border-radius: 10px;
+
+        img, .mountain-list-image-darken-overlay{
+          border-radius: 10px;
+        }
+      }
     }
   }
 }

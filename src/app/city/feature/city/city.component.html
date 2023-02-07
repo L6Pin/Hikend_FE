@@ -1,18 +1,22 @@
 <div class="city-container" *ngIf="city$ | async as vm; else loader">
   <div class="city-header">
-    <p class="city-name">{{ vm.name }}</p>
+    <div class="city-header-content">
+      <p class="city-county">{{vm.county}}</p>
+      <p class="city-name">{{ vm.name }}</p>
+      <div class="list-map-switch">
+        <div class="map-switch switch-active">Map</div>
+        <div class="list-switch">List</div>
+      </div>
+    </div>
+
     <div class="city-image-darken-overlay"></div>
     <img [src]="vm.photo_url" alt="" />
   </div>
   <div class="city">
-    <app-mountain-list-filter
-      (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
-      (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"
-    ></app-mountain-list-filter>
-    <app-mountain-list-item
-      [cityMountins]="cityMountainsListChanged"
-      [noSearchResults]="noSearchResults"
-    ></app-mountain-list-item>
+    <app-mountain-list-filter (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
+      (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"></app-mountain-list-filter>
+    <app-mountain-list-item [cityMountins]="cityMountainsListChanged"
+      [noSearchResults]="noSearchResults"></app-mountain-list-item>
   </div>
 </div>
 <ng-template #loader>
