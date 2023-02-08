@@ -10,7 +10,7 @@ import { MountainCoordinates } from 'src/app/shared/models/mountain';
 })
 export class MountainsMapComponent implements OnInit {
   @Input() cityCoordinates!: MountainCoordinates;
-  @Input() cityMountains!: any[];
+  @Input() cityMountains!: CityMountains[];
   private map!: L.Map;
   private centroid: L.LatLngExpression = [0, 0];
   private cityMarker = new L.Marker([0, 0]);
@@ -37,14 +37,19 @@ export class MountainsMapComponent implements OnInit {
         new L.Marker([mountain.coordinates.lat, mountain.coordinates.long], {
           icon: mountainMarkerIcon,
         })
-          .bindTooltip('Planina <br> <span>(300 m)</span>', {
-            permanent: true,
-            direction: 'bottom',
-            className: 'Lasta',
-          })
+          .bindTooltip(
+            `<div class="mountain-tooltip">
+               <p>${mountain.name}</p><span>(${mountain.height} m)</span>
+            </div>`,
+            {
+              permanent: true,
+              direction: 'bottom',
+              className: 'Lasta',
+            }
+          )
           .on('click', function () {
             window.open(
-              'http://localhost:4200/mountain/1669995883756',
+              `http://localhost:4200/mountain/${mountain.id}`,
               '_self'
             );
           })
@@ -67,9 +72,12 @@ export class MountainsMapComponent implements OnInit {
         ],
         {
           color: '#485123',
-          opacity: 0.7,
+          opacity: 0.6,
+          weight: 2,
         }
-      ).addTo(this.map);
+      ).on("mouseover", ()=> {
+        
+      }).addTo(this.map);
     });
   }
 

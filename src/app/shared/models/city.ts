@@ -15,4 +15,5 @@ export interface CityMountains {
   distance: number;
   photo_url: string;
   coordinates: MountainCoordinates;
+  height: number;
 }
