@@ -23,6 +23,7 @@ The user also has an option to select the
 <br />
 <br />
 <img style="height: 650px;" src="./src/assets/1.gif">
+<br />
 Once a mountain is selected, the user will be redirected to the selected mountain page. There he will be able to find useful information such as:
   <ul>
     <li>Mountain peak</li>
