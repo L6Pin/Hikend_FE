@@ -1,13 +1,23 @@
 <div class="city-container" *ngIf="city$ | async as vm; else loader">
   <div class="city-header">
     <div class="city-header-content">
-      <p class="city-county">{{vm.county}}</p>
+      <p class="city-county">{{ vm.county }}</p>
       <p class="city-name">{{ vm.name }}</p>
       <div class="list-map-switch">
-        <div class="map-switch " [ngClass]="cityMountainsMapView ? 'switch-active' : ''"
-          (click)="toggleCityMountainsMapView()">Map</div>
-        <div class="list-switch" [ngClass]="!cityMountainsMapView ? 'switch-active' : ''"
-          (click)="toggleCityMountainsListView()">List</div>
+        <div
+          class="map-switch"
+          [ngClass]="cityMountainsMapView ? 'switch-active' : ''"
+          (click)="toggleCityMountainsMapView()"
+        >
+          Map
+        </div>
+        <div
+          class="list-switch"
+          [ngClass]="!cityMountainsMapView ? 'switch-active' : ''"
+          (click)="toggleCityMountainsListView()"
+        >
+          List
+        </div>
       </div>
     </div>
 
@@ -15,18 +25,22 @@
     <img [src]="vm.photo_url" alt="" />
   </div>
   <div class="city">
+    <app-mountains-map
+      *ngIf="cityMountainsMapView"
+      [cityCoordinates]="vm.coordinates"
+      [cityMountains]="vm.mountains"
+    ></app-mountains-map>
 
-    <app-mountains-map *ngIf="cityMountainsMapView" [cityCoordinates]="vm.coordinates" [cityMountains]="vm.mountains"></app-mountains-map>
-
-    <ng-container *ngIf="!cityMountainsMapView" >
-      <app-mountain-list-filter (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
-        (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"></app-mountain-list-filter>
-      <app-mountain-list-item [cityMountins]="cityMountainsListChanged"
-        [noSearchResults]="noSearchResults"></app-mountain-list-item>
+    <ng-container *ngIf="!cityMountainsMapView">
+      <app-mountain-list-filter
+        (selectedSortValueUpdated)="onUserSelectsortMountains($event)"
+        (mountainSearchInputUpdated)="onUserInputfilterMountains($event)"
+      ></app-mountain-list-filter>
+      <app-mountain-list-item
+        [cityMountins]="cityMountainsListChanged"
+        [noSearchResults]="noSearchResults"
+      ></app-mountain-list-item>
     </ng-container>
-
-
-
   </div>
 </div>
 <ng-template #loader>

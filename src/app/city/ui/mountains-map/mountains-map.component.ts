@@ -47,7 +47,7 @@ export class MountainsMapComponent implements OnInit {
               className: 'Lasta',
             }
           )
-          .on('click', function () {
+          .on('click', () => {
             window.open(
               `http://localhost:4200/mountain/${mountain.id}`,
               '_self'
@@ -75,9 +75,9 @@ export class MountainsMapComponent implements OnInit {
           opacity: 0.6,
           weight: 2,
         }
-      ).on("mouseover", ()=> {
-        
-      }).addTo(this.map);
+      )
+        .on('mouseover', () => {})
+        .addTo(this.map);
     });
   }
 
@@ -104,7 +104,9 @@ export class MountainsMapComponent implements OnInit {
 
     this.map.zoomControl.setPosition('bottomleft');
     this.map.fitBounds(featureGroup.getBounds());
+
     this.cityMarker.addTo(this.map);
+
     this.addCityMountainMarkers();
     this.drawLineFromCityToMountain();
     tiles.addTo(this.map);
