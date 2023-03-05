@@ -15,7 +15,9 @@ Inspired by my passion for hiking, with the creation of this web application I i
 <h2>Application flow</h2>
 Once the web page is opened, the user is greeted with a search bar where they enter the name of the city.
 
-Upon selecting, they will be redirected to a page where all the mountains related to that city are displayed on a map by default or the user has the option to display them in a list view.     has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order or in a alphabetical descending order, as well as closest and furthest from the city, in real time. 
+Upon selecting, they will be redirected to a page where all the mountains related to that city are displayed on a map by default or the user has the option to display them in a list view. 
+<br />
+The user has the ability to filter the displayed list, as well as sort it by alphabetical ascending (default) order or in a alphabetical descending order, as well as closest and furthest from the city, in real time. 
 
 The user also has an option to select the 
 <br />
